@@ -1,6 +1,5 @@
 package org.sudoku;
 
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -9,6 +8,7 @@ import java.awt.event.ActionListener;
 public class SudokuPanel extends JPanel {
     private static final int GRID_SIZE = 9;
     private Cell[][] cells;
+    private SudokuOntology sudokuOntology;
     private JDialog loadingDialog;
 
     public SudokuPanel() {

@@ -3,6 +3,7 @@ package org.sudoku;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
+
 public class SudokuSolver {
     private static final int GRID_SIZE = 9;
 
