@@ -1,0 +1,2853 @@
+<?xml version="1.0"?>
+<!DOCTYPE Ontology [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://example.com/sudoku"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     ontologyIRI="http://example.com/sudoku">
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+
+    <!-- Classes -->
+    <Declaration>
+        <Class IRI="#Cell"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Row"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Column"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Block"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SudokuPuzzle"/>
+    </Declaration>
+
+    <!-- Object Properties -->
+    <Declaration>
+        <ObjectProperty IRI="#hasCell"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#belongsToRow"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#belongsToColumn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#belongsToBlock"/>
+    </Declaration>
+
+    <!-- Data Properties -->
+    <Declaration>
+        <DataProperty IRI="#value"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#rowIndex"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#columnIndex"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#blockIndex"/>
+    </Declaration>
+
+    <!-- Class Axioms -->
+    <DisjointClasses>
+        <Class IRI="#Row"/>
+        <Class IRI="#Column"/>
+        <Class IRI="#Block"/>
+    </DisjointClasses>
+
+    <!-- Object Property Axioms -->
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasCell"/>
+        <Class IRI="#SudokuPuzzle"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasCell"/>
+        <Class IRI="#Cell"/>
+    </ObjectPropertyRange>
+
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <Class IRI="#Cell"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <Class IRI="#Row"/>
+    </ObjectPropertyRange>
+
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <Class IRI="#Cell"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <Class IRI="#Column"/>
+    </ObjectPropertyRange>
+
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <Class IRI="#Cell"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <Class IRI="#Block"/>
+    </ObjectPropertyRange>
+
+    <!-- Data Property Axioms -->
+    <DataPropertyDomain>
+        <DataProperty IRI="#value"/>
+        <Class IRI="#Cell"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#value"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+
+    <DataPropertyDomain>
+        <DataProperty IRI="#rowIndex"/>
+        <Class IRI="#Row"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#rowIndex"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+
+    <DataPropertyDomain>
+        <DataProperty IRI="#columnIndex"/>
+        <Class IRI="#Column"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#columnIndex"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+
+    <DataPropertyDomain>
+        <DataProperty IRI="#blockIndex"/>
+        <Class IRI="#Block"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#blockIndex"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+
+    <!-- Individuals -->
+    <Declaration>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#SudokuPuzzle"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+    </ClassAssertion>
+
+    <!-- Cell individuals and their values (replace with your puzzle) -->
+
+    <Declaration>
+        <NamedIndividual IRI="#Cell_0_0"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_0_0"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#value"/>
+        <NamedIndividual IRI="#Cell_0_0"/>
+        <Literal datatypeIRI="&xsd;integer">5</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_0_0"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_0_0"/>
+        <NamedIndividual IRI="#Row_0"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_0_0"/>
+        <NamedIndividual IRI="#Column_0"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_0_0"/>
+        <NamedIndividual IRI="#Block_0"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_0_1"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_0_1"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#value"/>
+        <NamedIndividual IRI="#Cell_0_1"/>
+        <Literal datatypeIRI="&xsd;integer">3</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_0_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_0_1"/>
+        <NamedIndividual IRI="#Row_0"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_0_1"/>
+        <NamedIndividual IRI="#Column_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_0_1"/>
+        <NamedIndividual IRI="#Block_0"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_0_2"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_0_2"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_0_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_0_2"/>
+        <NamedIndividual IRI="#Row_0"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_0_2"/>
+        <NamedIndividual IRI="#Column_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_0_2"/>
+        <NamedIndividual IRI="#Block_0"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_0_3"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_0_3"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_0_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_0_3"/>
+        <NamedIndividual IRI="#Row_0"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_0_3"/>
+        <NamedIndividual IRI="#Column_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_0_3"/>
+        <NamedIndividual IRI="#Block_1"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_0_4"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_0_4"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#value"/>
+        <NamedIndividual IRI="#Cell_0_4"/>
+        <Literal datatypeIRI="&xsd;integer">7</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_0_4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_0_4"/>
+        <NamedIndividual IRI="#Row_0"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_0_4"/>
+        <NamedIndividual IRI="#Column_4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_0_4"/>
+        <NamedIndividual IRI="#Block_1"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_0_5"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_0_5"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_0_5"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_0_5"/>
+        <NamedIndividual IRI="#Row_0"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_0_5"/>
+        <NamedIndividual IRI="#Column_5"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_0_5"/>
+        <NamedIndividual IRI="#Block_1"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_0_6"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_0_6"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_0_6"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_0_6"/>
+        <NamedIndividual IRI="#Row_0"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_0_6"/>
+        <NamedIndividual IRI="#Column_6"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_0_6"/>
+        <NamedIndividual IRI="#Block_2"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_0_7"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_0_7"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_0_7"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_0_7"/>
+        <NamedIndividual IRI="#Row_0"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_0_7"/>
+        <NamedIndividual IRI="#Column_7"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_0_7"/>
+        <NamedIndividual IRI="#Block_2"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_0_8"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_0_8"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_0_8"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_0_8"/>
+        <NamedIndividual IRI="#Row_0"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_0_8"/>
+        <NamedIndividual IRI="#Column_8"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_0_8"/>
+        <NamedIndividual IRI="#Block_2"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_1_0"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_1_0"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#value"/>
+        <NamedIndividual IRI="#Cell_1_0"/>
+        <Literal datatypeIRI="&xsd;integer">6</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_1_0"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_1_0"/>
+        <NamedIndividual IRI="#Row_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_1_0"/>
+        <NamedIndividual IRI="#Column_0"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_1_0"/>
+        <NamedIndividual IRI="#Block_0"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_1_1"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_1_1"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_1_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_1_1"/>
+        <NamedIndividual IRI="#Row_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_1_1"/>
+        <NamedIndividual IRI="#Column_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_1_1"/>
+        <NamedIndividual IRI="#Block_0"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_1_2"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_1_2"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_1_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_1_2"/>
+        <NamedIndividual IRI="#Row_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_1_2"/>
+        <NamedIndividual IRI="#Column_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_1_2"/>
+        <NamedIndividual IRI="#Block_0"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_1_3"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_1_3"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#value"/>
+        <NamedIndividual IRI="#Cell_1_3"/>
+        <Literal datatypeIRI="&xsd;integer">1</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_1_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_1_3"/>
+        <NamedIndividual IRI="#Row_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_1_3"/>
+        <NamedIndividual IRI="#Column_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_1_3"/>
+        <NamedIndividual IRI="#Block_1"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_1_4"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_1_4"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#value"/>
+        <NamedIndividual IRI="#Cell_1_4"/>
+        <Literal datatypeIRI="&xsd;integer">9</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_1_4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_1_4"/>
+        <NamedIndividual IRI="#Row_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_1_4"/>
+        <NamedIndividual IRI="#Column_4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_1_4"/>
+        <NamedIndividual IRI="#Block_1"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_1_5"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_1_5"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#value"/>
+        <NamedIndividual IRI="#Cell_1_5"/>
+        <Literal datatypeIRI="&xsd;integer">5</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_1_5"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_1_5"/>
+        <NamedIndividual IRI="#Row_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_1_5"/>
+        <NamedIndividual IRI="#Column_5"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_1_5"/>
+        <NamedIndividual IRI="#Block_1"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_1_6"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_1_6"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_1_6"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_1_6"/>
+        <NamedIndividual IRI="#Row_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_1_6"/>
+        <NamedIndividual IRI="#Column_6"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_1_6"/>
+        <NamedIndividual IRI="#Block_2"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_1_7"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_1_7"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_1_7"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_1_7"/>
+        <NamedIndividual IRI="#Row_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_1_7"/>
+        <NamedIndividual IRI="#Column_7"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_1_7"/>
+        <NamedIndividual IRI="#Block_2"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_1_8"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_1_8"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_1_8"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_1_8"/>
+        <NamedIndividual IRI="#Row_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_1_8"/>
+        <NamedIndividual IRI="#Column_8"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_1_8"/>
+        <NamedIndividual IRI="#Block_2"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_2_0"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_2_0"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_2_0"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_2_0"/>
+        <NamedIndividual IRI="#Row_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_2_0"/>
+        <NamedIndividual IRI="#Column_0"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_2_0"/>
+        <NamedIndividual IRI="#Block_0"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_2_1"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_2_1"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#value"/>
+        <NamedIndividual IRI="#Cell_2_1"/>
+        <Literal datatypeIRI="&xsd;integer">9</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_2_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_2_1"/>
+        <NamedIndividual IRI="#Row_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_2_1"/>
+        <NamedIndividual IRI="#Column_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_2_1"/>
+        <NamedIndividual IRI="#Block_0"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_2_2"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_2_2"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#value"/>
+        <NamedIndividual IRI="#Cell_2_2"/>
+        <Literal datatypeIRI="&xsd;integer">8</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_2_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_2_2"/>
+        <NamedIndividual IRI="#Row_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_2_2"/>
+        <NamedIndividual IRI="#Column_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_2_2"/>
+        <NamedIndividual IRI="#Block_0"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_2_3"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_2_3"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_2_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_2_3"/>
+        <NamedIndividual IRI="#Row_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_2_3"/>
+        <NamedIndividual IRI="#Column_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_2_3"/>
+        <NamedIndividual IRI="#Block_1"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_2_4"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_2_4"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_2_4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_2_4"/>
+        <NamedIndividual IRI="#Row_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_2_4"/>
+        <NamedIndividual IRI="#Column_4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_2_4"/>
+        <NamedIndividual IRI="#Block_1"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_2_5"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_2_5"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_2_5"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_2_5"/>
+        <NamedIndividual IRI="#Row_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_2_5"/>
+        <NamedIndividual IRI="#Column_5"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_2_5"/>
+        <NamedIndividual IRI="#Block_1"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_2_6"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_2_6"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_2_6"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_2_6"/>
+        <NamedIndividual IRI="#Row_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_2_6"/>
+        <NamedIndividual IRI="#Column_6"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_2_6"/>
+        <NamedIndividual IRI="#Block_2"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_2_7"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_2_7"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#value"/>
+        <NamedIndividual IRI="#Cell_2_7"/>
+        <Literal datatypeIRI="&xsd;integer">6</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_2_7"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_2_7"/>
+        <NamedIndividual IRI="#Row_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_2_7"/>
+        <NamedIndividual IRI="#Column_7"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_2_7"/>
+        <NamedIndividual IRI="#Block_2"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_2_8"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_2_8"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_2_8"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_2_8"/>
+        <NamedIndividual IRI="#Row_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_2_8"/>
+        <NamedIndividual IRI="#Column_8"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_2_8"/>
+        <NamedIndividual IRI="#Block_2"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_3_0"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_3_0"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#value"/>
+        <NamedIndividual IRI="#Cell_3_0"/>
+        <Literal datatypeIRI="&xsd;integer">8</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_3_0"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_3_0"/>
+        <NamedIndividual IRI="#Row_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_3_0"/>
+        <NamedIndividual IRI="#Column_0"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_3_0"/>
+        <NamedIndividual IRI="#Block_3"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_3_1"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_3_1"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_3_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_3_1"/>
+        <NamedIndividual IRI="#Row_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_3_1"/>
+        <NamedIndividual IRI="#Column_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_3_1"/>
+        <NamedIndividual IRI="#Block_3"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_3_2"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_3_2"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_3_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_3_2"/>
+        <NamedIndividual IRI="#Row_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_3_2"/>
+        <NamedIndividual IRI="#Column_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_3_2"/>
+        <NamedIndividual IRI="#Block_3"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_3_3"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_3_3"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_3_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_3_3"/>
+        <NamedIndividual IRI="#Row_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_3_3"/>
+        <NamedIndividual IRI="#Column_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_3_3"/>
+        <NamedIndividual IRI="#Block_4"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_3_4"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_3_4"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#value"/>
+        <NamedIndividual IRI="#Cell_3_4"/>
+        <Literal datatypeIRI="&xsd;integer">6</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_3_4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_3_4"/>
+        <NamedIndividual IRI="#Row_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_3_4"/>
+        <NamedIndividual IRI="#Column_4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_3_4"/>
+        <NamedIndividual IRI="#Block_4"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_3_5"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_3_5"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_3_5"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_3_5"/>
+        <NamedIndividual IRI="#Row_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_3_5"/>
+        <NamedIndividual IRI="#Column_5"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_3_5"/>
+        <NamedIndividual IRI="#Block_4"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_3_6"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_3_6"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_3_6"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_3_6"/>
+        <NamedIndividual IRI="#Row_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_3_6"/>
+        <NamedIndividual IRI="#Column_6"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_3_6"/>
+        <NamedIndividual IRI="#Block_5"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_3_7"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_3_7"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_3_7"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_3_7"/>
+        <NamedIndividual IRI="#Row_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_3_7"/>
+        <NamedIndividual IRI="#Column_7"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_3_7"/>
+        <NamedIndividual IRI="#Block_5"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_3_8"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_3_8"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#value"/>
+        <NamedIndividual IRI="#Cell_3_8"/>
+        <Literal datatypeIRI="&xsd;integer">3</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_3_8"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_3_8"/>
+        <NamedIndividual IRI="#Row_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_3_8"/>
+        <NamedIndividual IRI="#Column_8"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_3_8"/>
+        <NamedIndividual IRI="#Block_5"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_4_0"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_4_0"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#value"/>
+        <NamedIndividual IRI="#Cell_4_0"/>
+        <Literal datatypeIRI="&xsd;integer">4</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_4_0"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_4_0"/>
+        <NamedIndividual IRI="#Row_4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_4_0"/>
+        <NamedIndividual IRI="#Column_0"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_4_0"/>
+        <NamedIndividual IRI="#Block_3"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_4_1"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_4_1"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_4_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_4_1"/>
+        <NamedIndividual IRI="#Row_4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_4_1"/>
+        <NamedIndividual IRI="#Column_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_4_1"/>
+        <NamedIndividual IRI="#Block_3"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_4_2"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_4_2"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_4_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_4_2"/>
+        <NamedIndividual IRI="#Row_4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_4_2"/>
+        <NamedIndividual IRI="#Column_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_4_2"/>
+        <NamedIndividual IRI="#Block_3"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_4_3"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_4_3"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#value"/>
+        <NamedIndividual IRI="#Cell_4_3"/>
+        <Literal datatypeIRI="&xsd;integer">8</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_4_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_4_3"/>
+        <NamedIndividual IRI="#Row_4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_4_3"/>
+        <NamedIndividual IRI="#Column_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_4_3"/>
+        <NamedIndividual IRI="#Block_4"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_4_4"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_4_4"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_4_4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_4_4"/>
+        <NamedIndividual IRI="#Row_4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_4_4"/>
+        <NamedIndividual IRI="#Column_4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_4_4"/>
+        <NamedIndividual IRI="#Block_4"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_4_5"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_4_5"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#value"/>
+        <NamedIndividual IRI="#Cell_4_5"/>
+        <Literal datatypeIRI="&xsd;integer">3</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_4_5"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_4_5"/>
+        <NamedIndividual IRI="#Row_4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_4_5"/>
+        <NamedIndividual IRI="#Column_5"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_4_5"/>
+        <NamedIndividual IRI="#Block_4"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_4_6"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_4_6"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_4_6"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_4_6"/>
+        <NamedIndividual IRI="#Row_4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_4_6"/>
+        <NamedIndividual IRI="#Column_6"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_4_6"/>
+        <NamedIndividual IRI="#Block_5"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_4_7"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_4_7"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_4_7"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_4_7"/>
+        <NamedIndividual IRI="#Row_4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_4_7"/>
+        <NamedIndividual IRI="#Column_7"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_4_7"/>
+        <NamedIndividual IRI="#Block_5"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_4_8"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_4_8"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#value"/>
+        <NamedIndividual IRI="#Cell_4_8"/>
+        <Literal datatypeIRI="&xsd;integer">1</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_4_8"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_4_8"/>
+        <NamedIndividual IRI="#Row_4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_4_8"/>
+        <NamedIndividual IRI="#Column_8"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_4_8"/>
+        <NamedIndividual IRI="#Block_5"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_5_0"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_5_0"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#value"/>
+        <NamedIndividual IRI="#Cell_5_0"/>
+        <Literal datatypeIRI="&xsd;integer">7</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_5_0"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_5_0"/>
+        <NamedIndividual IRI="#Row_5"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_5_0"/>
+        <NamedIndividual IRI="#Column_0"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_5_0"/>
+        <NamedIndividual IRI="#Block_3"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_5_1"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_5_1"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_5_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_5_1"/>
+        <NamedIndividual IRI="#Row_5"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_5_1"/>
+        <NamedIndividual IRI="#Column_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_5_1"/>
+        <NamedIndividual IRI="#Block_3"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_5_2"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_5_2"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_5_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_5_2"/>
+        <NamedIndividual IRI="#Row_5"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_5_2"/>
+        <NamedIndividual IRI="#Column_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_5_2"/>
+        <NamedIndividual IRI="#Block_3"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_5_3"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_5_3"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_5_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_5_3"/>
+        <NamedIndividual IRI="#Row_5"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_5_3"/>
+        <NamedIndividual IRI="#Column_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_5_3"/>
+        <NamedIndividual IRI="#Block_4"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_5_4"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_5_4"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#value"/>
+        <NamedIndividual IRI="#Cell_5_4"/>
+        <Literal datatypeIRI="&xsd;integer">2</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_5_4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_5_4"/>
+        <NamedIndividual IRI="#Row_5"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_5_4"/>
+        <NamedIndividual IRI="#Column_4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_5_4"/>
+        <NamedIndividual IRI="#Block_4"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_5_5"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_5_5"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_5_5"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_5_5"/>
+        <NamedIndividual IRI="#Row_5"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_5_5"/>
+        <NamedIndividual IRI="#Column_5"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_5_5"/>
+        <NamedIndividual IRI="#Block_4"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_5_6"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_5_6"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_5_6"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_5_6"/>
+        <NamedIndividual IRI="#Row_5"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_5_6"/>
+        <NamedIndividual IRI="#Column_6"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_5_6"/>
+        <NamedIndividual IRI="#Block_5"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_5_7"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_5_7"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_5_7"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_5_7"/>
+        <NamedIndividual IRI="#Row_5"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_5_7"/>
+        <NamedIndividual IRI="#Column_7"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_5_7"/>
+        <NamedIndividual IRI="#Block_5"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_5_8"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_5_8"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#value"/>
+        <NamedIndividual IRI="#Cell_5_8"/>
+        <Literal datatypeIRI="&xsd;integer">6</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_5_8"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_5_8"/>
+        <NamedIndividual IRI="#Row_5"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_5_8"/>
+        <NamedIndividual IRI="#Column_8"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_5_8"/>
+        <NamedIndividual IRI="#Block_5"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_6_0"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_6_0"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_6_0"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_6_0"/>
+        <NamedIndividual IRI="#Row_6"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_6_0"/>
+        <NamedIndividual IRI="#Column_0"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_6_0"/>
+        <NamedIndividual IRI="#Block_6"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_6_1"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_6_1"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#value"/>
+        <NamedIndividual IRI="#Cell_6_1"/>
+        <Literal datatypeIRI="&xsd;integer">6</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_6_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_6_1"/>
+        <NamedIndividual IRI="#Row_6"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_6_1"/>
+        <NamedIndividual IRI="#Column_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_6_1"/>
+        <NamedIndividual IRI="#Block_6"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_6_2"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_6_2"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_6_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_6_2"/>
+        <NamedIndividual IRI="#Row_6"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_6_2"/>
+        <NamedIndividual IRI="#Column_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_6_2"/>
+        <NamedIndividual IRI="#Block_6"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_6_3"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_6_3"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_6_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_6_3"/>
+        <NamedIndividual IRI="#Row_6"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_6_3"/>
+        <NamedIndividual IRI="#Column_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_6_3"/>
+        <NamedIndividual IRI="#Block_7"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_6_4"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_6_4"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_6_4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_6_4"/>
+        <NamedIndividual IRI="#Row_6"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_6_4"/>
+        <NamedIndividual IRI="#Column_4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_6_4"/>
+        <NamedIndividual IRI="#Block_7"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_6_5"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_6_5"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_6_5"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_6_5"/>
+        <NamedIndividual IRI="#Row_6"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_6_5"/>
+        <NamedIndividual IRI="#Column_5"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_6_5"/>
+        <NamedIndividual IRI="#Block_7"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_6_6"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_6_6"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#value"/>
+        <NamedIndividual IRI="#Cell_6_6"/>
+        <Literal datatypeIRI="&xsd;integer">2</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_6_6"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_6_6"/>
+        <NamedIndividual IRI="#Row_6"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_6_6"/>
+        <NamedIndividual IRI="#Column_6"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_6_6"/>
+        <NamedIndividual IRI="#Block_8"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_6_7"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_6_7"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#value"/>
+        <NamedIndividual IRI="#Cell_6_7"/>
+        <Literal datatypeIRI="&xsd;integer">8</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_6_7"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_6_7"/>
+        <NamedIndividual IRI="#Row_6"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_6_7"/>
+        <NamedIndividual IRI="#Column_7"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_6_7"/>
+        <NamedIndividual IRI="#Block_8"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_6_8"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_6_8"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_6_8"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_6_8"/>
+        <NamedIndividual IRI="#Row_6"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_6_8"/>
+        <NamedIndividual IRI="#Column_8"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_6_8"/>
+        <NamedIndividual IRI="#Block_8"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_7_0"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_7_0"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_7_0"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_7_0"/>
+        <NamedIndividual IRI="#Row_7"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_7_0"/>
+        <NamedIndividual IRI="#Column_0"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_7_0"/>
+        <NamedIndividual IRI="#Block_6"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_7_1"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_7_1"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_7_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_7_1"/>
+        <NamedIndividual IRI="#Row_7"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_7_1"/>
+        <NamedIndividual IRI="#Column_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_7_1"/>
+        <NamedIndividual IRI="#Block_6"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_7_2"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_7_2"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_7_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_7_2"/>
+        <NamedIndividual IRI="#Row_7"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_7_2"/>
+        <NamedIndividual IRI="#Column_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_7_2"/>
+        <NamedIndividual IRI="#Block_6"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_7_3"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_7_3"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#value"/>
+        <NamedIndividual IRI="#Cell_7_3"/>
+        <Literal datatypeIRI="&xsd;integer">4</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_7_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_7_3"/>
+        <NamedIndividual IRI="#Row_7"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_7_3"/>
+        <NamedIndividual IRI="#Column_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_7_3"/>
+        <NamedIndividual IRI="#Block_7"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_7_4"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_7_4"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#value"/>
+        <NamedIndividual IRI="#Cell_7_4"/>
+        <Literal datatypeIRI="&xsd;integer">1</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_7_4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_7_4"/>
+        <NamedIndividual IRI="#Row_7"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_7_4"/>
+        <NamedIndividual IRI="#Column_4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_7_4"/>
+        <NamedIndividual IRI="#Block_7"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_7_5"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_7_5"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#value"/>
+        <NamedIndividual IRI="#Cell_7_5"/>
+        <Literal datatypeIRI="&xsd;integer">9</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_7_5"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_7_5"/>
+        <NamedIndividual IRI="#Row_7"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_7_5"/>
+        <NamedIndividual IRI="#Column_5"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_7_5"/>
+        <NamedIndividual IRI="#Block_7"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_7_6"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_7_6"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_7_6"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_7_6"/>
+        <NamedIndividual IRI="#Row_7"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_7_6"/>
+        <NamedIndividual IRI="#Column_6"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_7_6"/>
+        <NamedIndividual IRI="#Block_8"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_7_7"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_7_7"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_7_7"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_7_7"/>
+        <NamedIndividual IRI="#Row_7"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_7_7"/>
+        <NamedIndividual IRI="#Column_7"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_7_7"/>
+        <NamedIndividual IRI="#Block_8"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_7_8"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_7_8"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#value"/>
+        <NamedIndividual IRI="#Cell_7_8"/>
+        <Literal datatypeIRI="&xsd;integer">5</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_7_8"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_7_8"/>
+        <NamedIndividual IRI="#Row_7"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_7_8"/>
+        <NamedIndividual IRI="#Column_8"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_7_8"/>
+        <NamedIndividual IRI="#Block_8"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_8_0"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_8_0"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_8_0"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_8_0"/>
+        <NamedIndividual IRI="#Row_8"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_8_0"/>
+        <NamedIndividual IRI="#Column_0"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_8_0"/>
+        <NamedIndividual IRI="#Block_6"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_8_1"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_8_1"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_8_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_8_1"/>
+        <NamedIndividual IRI="#Row_8"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_8_1"/>
+        <NamedIndividual IRI="#Column_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_8_1"/>
+        <NamedIndividual IRI="#Block_6"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_8_2"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_8_2"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_8_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_8_2"/>
+        <NamedIndividual IRI="#Row_8"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_8_2"/>
+        <NamedIndividual IRI="#Column_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_8_2"/>
+        <NamedIndividual IRI="#Block_6"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_8_3"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_8_3"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_8_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_8_3"/>
+        <NamedIndividual IRI="#Row_8"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_8_3"/>
+        <NamedIndividual IRI="#Column_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_8_3"/>
+        <NamedIndividual IRI="#Block_7"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_8_4"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_8_4"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#value"/>
+        <NamedIndividual IRI="#Cell_8_4"/>
+        <Literal datatypeIRI="&xsd;integer">8</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_8_4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_8_4"/>
+        <NamedIndividual IRI="#Row_8"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_8_4"/>
+        <NamedIndividual IRI="#Column_4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_8_4"/>
+        <NamedIndividual IRI="#Block_7"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_8_5"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_8_5"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_8_5"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_8_5"/>
+        <NamedIndividual IRI="#Row_8"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_8_5"/>
+        <NamedIndividual IRI="#Column_5"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_8_5"/>
+        <NamedIndividual IRI="#Block_7"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_8_6"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_8_6"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_8_6"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_8_6"/>
+        <NamedIndividual IRI="#Row_8"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_8_6"/>
+        <NamedIndividual IRI="#Column_6"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_8_6"/>
+        <NamedIndividual IRI="#Block_8"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_8_7"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_8_7"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#value"/>
+        <NamedIndividual IRI="#Cell_8_7"/>
+        <Literal datatypeIRI="&xsd;integer">7</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_8_7"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_8_7"/>
+        <NamedIndividual IRI="#Row_8"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_8_7"/>
+        <NamedIndividual IRI="#Column_7"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_8_7"/>
+        <NamedIndividual IRI="#Block_8"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <NamedIndividual IRI="#Cell_8_8"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Cell"/>
+        <NamedIndividual IRI="#Cell_8_8"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#value"/>
+        <NamedIndividual IRI="#Cell_8_8"/>
+        <Literal datatypeIRI="&xsd;integer">9</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasCell"/>
+        <NamedIndividual IRI="#SudokuPuzzle1"/>
+        <NamedIndividual IRI="#Cell_8_8"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToRow"/>
+        <NamedIndividual IRI="#Cell_8_8"/>
+        <NamedIndividual IRI="#Row_8"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToColumn"/>
+        <NamedIndividual IRI="#Cell_8_8"/>
+        <NamedIndividual IRI="#Column_8"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#belongsToBlock"/>
+        <NamedIndividual IRI="#Cell_8_8"/>
+        <NamedIndividual IRI="#Block_8"/>
+    </ObjectPropertyAssertion>
+
+    <!-- Add more cell individuals and their values here -->
+
+    <!-- Row individuals -->
+    <Declaration>
+        <NamedIndividual IRI="#Row_0"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Row"/>
+        <NamedIndividual IRI="#Row_0"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#rowIndex"/>
+        <NamedIndividual IRI="#Row_0"/>
+        <Literal datatypeIRI="&xsd;integer">0</Literal>
+    </DataPropertyAssertion>
+
+    <Declaration>
+        <NamedIndividual IRI="#Row_1"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Row"/>
+        <NamedIndividual IRI="#Row_1"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#rowIndex"/>
+        <NamedIndividual IRI="#Row_1"/>
+        <Literal datatypeIRI="&xsd;integer">1</Literal>
+    </DataPropertyAssertion>
+
+    <Declaration>
+        <NamedIndividual IRI="#Row_2"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Row"/>
+        <NamedIndividual IRI="#Row_2"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#rowIndex"/>
+        <NamedIndividual IRI="#Row_2"/>
+        <Literal datatypeIRI="&xsd;integer">2</Literal>
+    </DataPropertyAssertion>
+
+    <Declaration>
+        <NamedIndividual IRI="#Row_3"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Row"/>
+        <NamedIndividual IRI="#Row_3"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#rowIndex"/>
+        <NamedIndividual IRI="#Row_3"/>
+        <Literal datatypeIRI="&xsd;integer">3</Literal>
+    </DataPropertyAssertion>
+
+    <Declaration>
+        <NamedIndividual IRI="#Row_4"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Row"/>
+        <NamedIndividual IRI="#Row_4"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#rowIndex"/>
+        <NamedIndividual IRI="#Row_4"/>
+        <Literal datatypeIRI="&xsd;integer">4</Literal>
+    </DataPropertyAssertion>
+
+    <Declaration>
+        <NamedIndividual IRI="#Row_5"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Row"/>
+        <NamedIndividual IRI="#Row_5"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#rowIndex"/>
+        <NamedIndividual IRI="#Row_5"/>
+        <Literal datatypeIRI="&xsd;integer">5</Literal>
+    </DataPropertyAssertion>
+
+    <Declaration>
+        <NamedIndividual IRI="#Row_6"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Row"/>
+        <NamedIndividual IRI="#Row_6"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#rowIndex"/>
+        <NamedIndividual IRI="#Row_6"/>
+        <Literal datatypeIRI="&xsd;integer">6</Literal>
+    </DataPropertyAssertion>
+
+    <Declaration>
+        <NamedIndividual IRI="#Row_7"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Row"/>
+        <NamedIndividual IRI="#Row_7"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#rowIndex"/>
+        <NamedIndividual IRI="#Row_7"/>
+        <Literal datatypeIRI="&xsd;integer">7</Literal>
+    </DataPropertyAssertion>
+
+    <Declaration>
+        <NamedIndividual IRI="#Row_8"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Row"/>
+        <NamedIndividual IRI="#Row_8"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#rowIndex"/>
+        <NamedIndividual IRI="#Row_8"/>
+        <Literal datatypeIRI="&xsd;integer">8</Literal>
+    </DataPropertyAssertion>
+
+    <!-- Column individuals -->
+    <Declaration>
+        <NamedIndividual IRI="#Column_0"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Column"/>
+        <NamedIndividual IRI="#Column_0"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#columnIndex"/>
+        <NamedIndividual IRI="#Column_0"/>
+        <Literal datatypeIRI="&xsd;integer">0</Literal>
+    </DataPropertyAssertion>
+
+    <Declaration>
+        <NamedIndividual IRI="#Column_1"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Column"/>
+        <NamedIndividual IRI="#Column_1"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#columnIndex"/>
+        <NamedIndividual IRI="#Column_1"/>
+        <Literal datatypeIRI="&xsd;integer">1</Literal>
+    </DataPropertyAssertion>
+
+    <!-- Add more column individuals here up to Column_8 -->
+    <Declaration>
+        <NamedIndividual IRI="#Column_2"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Column"/>
+        <NamedIndividual IRI="#Column_2"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#columnIndex"/>
+        <NamedIndividual IRI="#Column_2"/>
+        <Literal datatypeIRI="&xsd;integer">2</Literal>
+    </DataPropertyAssertion>
+
+    <Declaration>
+        <NamedIndividual IRI="#Column_3"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Column"/>
+        <NamedIndividual IRI="#Column_3"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#columnIndex"/>
+        <NamedIndividual IRI="#Column_3"/>
+        <Literal datatypeIRI="&xsd;integer">3</Literal>
+    </DataPropertyAssertion>
+
+    <Declaration>
+        <NamedIndividual IRI="#Column_4"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Column"/>
+        <NamedIndividual IRI="#Column_4"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#columnIndex"/>
+        <NamedIndividual IRI="#Column_4"/>
+        <Literal datatypeIRI="&xsd;integer">4</Literal>
+    </DataPropertyAssertion>
+
+    <Declaration>
+        <NamedIndividual IRI="#Column_5"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Column"/>
+        <NamedIndividual IRI="#Column_5"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#columnIndex"/>
+        <NamedIndividual IRI="#Column_5"/>
+        <Literal datatypeIRI="&xsd;integer">5</Literal>
+    </DataPropertyAssertion>
+
+    <Declaration>
+        <NamedIndividual IRI="#Column_6"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Column"/>
+        <NamedIndividual IRI="#Column_6"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#columnIndex"/>
+        <NamedIndividual IRI="#Column_6"/>
+        <Literal datatypeIRI="&xsd;integer">6</Literal>
+    </DataPropertyAssertion>
+
+    <Declaration>
+        <NamedIndividual IRI="#Column_7"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Column"/>
+        <NamedIndividual IRI="#Column_7"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#columnIndex"/>
+        <NamedIndividual IRI="#Column_7"/>
+        <Literal datatypeIRI="&xsd;integer">7</Literal>
+    </DataPropertyAssertion>
+
+    <Declaration>
+        <NamedIndividual IRI="#Column_8"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Column"/>
+        <NamedIndividual IRI="#Column_8"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#columnIndex"/>
+        <NamedIndividual IRI="#Column_8"/>
+        <Literal datatypeIRI="&xsd;integer">8</Literal>
+    </DataPropertyAssertion>
+
+
+    <!-- Block individuals -->
+    <Declaration>
+        <NamedIndividual IRI="#Block_0"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Block"/>
+        <NamedIndividual IRI="#Block_0"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#blockIndex"/>
+        <NamedIndividual IRI="#Block_0"/>
+        <Literal datatypeIRI="&xsd;integer">0</Literal>
+    </DataPropertyAssertion>
+
+    <Declaration>
+        <NamedIndividual IRI="#Block_1"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Block"/>
+        <NamedIndividual IRI="#Block_1"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#blockIndex"/>
+        <NamedIndividual IRI="#Block_1"/>
+        <Literal datatypeIRI="&xsd;integer">1</Literal>
+    </DataPropertyAssertion>
+
+    <Declaration>
+        <NamedIndividual IRI="#Block_2"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Block"/>
+        <NamedIndividual IRI="#Block_2"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#blockIndex"/>
+        <NamedIndividual IRI="#Block_2"/>
+        <Literal datatypeIRI="&xsd;integer">2</Literal>
+    </DataPropertyAssertion>
+
+    <Declaration>
+        <NamedIndividual IRI="#Block_3"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Block"/>
+        <NamedIndividual IRI="#Block_3"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#blockIndex"/>
+        <NamedIndividual IRI="#Block_3"/>
+        <Literal datatypeIRI="&xsd;integer">3</Literal>
+    </DataPropertyAssertion>
+
+    <Declaration>
+        <NamedIndividual IRI="#Block_4"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Block"/>
+        <NamedIndividual IRI="#Block_4"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#blockIndex"/>
+        <NamedIndividual IRI="#Block_4"/>
+        <Literal datatypeIRI="&xsd;integer">4</Literal>
+    </DataPropertyAssertion>
+
+    <Declaration>
+        <NamedIndividual IRI="#Block_5"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Block"/>
+        <NamedIndividual IRI="#Block_5"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#blockIndex"/>
+        <NamedIndividual IRI="#Block_5"/>
+        <Literal datatypeIRI="&xsd;integer">5</Literal>
+    </DataPropertyAssertion>
+
+    <Declaration>
+        <NamedIndividual IRI="#Block_6"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Block"/>
+        <NamedIndividual IRI="#Block_6"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#blockIndex"/>
+        <NamedIndividual IRI="#Block_6"/>
+        <Literal datatypeIRI="&xsd;integer">6</Literal>
+    </DataPropertyAssertion>
+
+    <Declaration>
+        <NamedIndividual IRI="#Block_7"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Block"/>
+        <NamedIndividual IRI="#Block_7"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#blockIndex"/>
+        <NamedIndividual IRI="#Block_7"/>
+        <Literal datatypeIRI="&xsd;integer">7</Literal>
+    </DataPropertyAssertion>
+
+    <Declaration>
+        <NamedIndividual IRI="#Block_8"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Block"/>
+        <NamedIndividual IRI="#Block_8"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#blockIndex"/>
+        <NamedIndividual IRI="#Block_8"/>
+        <Literal datatypeIRI="&xsd;integer">8</Literal>
+    </DataPropertyAssertion>
+
+</Ontology>
