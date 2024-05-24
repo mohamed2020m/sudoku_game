@@ -1,4 +1,4 @@
-package org.sudoku;
+package org.essabir;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,6 +15,13 @@ public class Cell extends JTextField {
         setFont(new Font("Arial", Font.BOLD, 20));
         setBorder(BorderFactory.createLineBorder(DEFAULT_BORDER_COLOR));
         setEditable(true);
+    }
+
+    @Override
+    public void replaceSelection(String text) {
+        if (text.matches("[1-9]") || text.isEmpty()) {
+            super.replaceSelection(text);
+        }
     }
 
     public int getValue() {

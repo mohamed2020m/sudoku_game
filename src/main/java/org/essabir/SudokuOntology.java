@@ -1,4 +1,4 @@
-package org.sudoku;
+package org.essabir;
 
 import org.apache.jena.util.FileManager;
 import org.semanticweb.HermiT.Reasoner;

@@ -1,4 +1,4 @@
-package org.sudoku;
+package org.essabir;
 
 import java.util.Random;
 

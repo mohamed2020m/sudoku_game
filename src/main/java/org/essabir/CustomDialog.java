@@ -1,4 +1,4 @@
-package org.sudoku;
+package org.essabir;
 
 import javax.swing.*;
 import java.awt.*;
